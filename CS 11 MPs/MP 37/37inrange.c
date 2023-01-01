@@ -3,7 +3,7 @@
 int main()
 {
     // Initialize Variable Bank
-    int n, a, b, c;
+    int n, a, b, c, upper_lim, lower_lim;
 
     // Get Number of Sets from User
     scanf("%d", &n);
@@ -14,8 +14,11 @@ int main()
         // Get Set of Numbers
         scanf("%d %d %d", &a, &b, &c);
 
-        // Evaluate if "c" is in between of a and b
-        if (((a < c) && (c < b)))
+        upper_lim = a + b;
+        lower_lim = a - b;
+
+        // Evaluate if "c" is in between of a and b (inclusive)
+        if (((lower_lim <= c) && (c <= upper_lim)))
         {
             printf("Yes\n");
         }
