@@ -1,0 +1,44 @@
+// GET THE COMMAND STRINGS
+        int arr2[512];
+        for(int i2 = 0; i2 < 512; i2++)
+        {
+            arr[i2] = 0;
+        }
+
+        char str2[512];
+        fgets(str2, sizeof(str2), stdin);
+
+
+        int index2 = 0;
+        int input_two_digit_bool2 = 0;
+
+	    for(int i2 = 0; str2[i2] != '\n'; i2++)
+	    {
+            // skip if space or colon
+            if(str2[i2] == ' ')
+	    	{
+	    	    input_two_digit_bool2 = 0;
+                continue;
+	    	}
+
+	    	if(str[i2] != ' ')
+            {
+                // get two digit case
+                if( (str2[i2 + 1] != ' ') && (str2[i2 + 2] == ' '  || str2[i2 + 2] == '\n') )
+                {
+                    arr2[index2] = ((str2[i2] - 48) * 10) + (str2[i2 + 1] - 48);
+                    index2++;
+                    input_two_digit_bool2 = 1;
+                    continue;
+                }
+
+                // get one digit case
+                if( (str2[i2 + 1] == ' ' || str2[i2 + 1] == '\n') &&  (input_two_digit_bool2 == 0)) 
+	    	    {
+	    	    	arr2[index2] = str[i2] - 48;
+	    	    	index2++;
+                    input_two_digit_bool2 = 0;
+                    continue;
+	    	    }
+            }
+	    }
